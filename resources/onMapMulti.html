@@ -1,0 +1,34 @@
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    #radius-control {
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Digite o CEP" aria-label="Recipient's username" aria-describedby="button-addon2" id="cep">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="adicionarPonto()">Adicionar</button>
+  </div>
+ </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3" style="text-align: center; margin-bottom: 2rem;">
+        <label for="radius-control" style="font-size: 12px;font-weight: bold;">RAIO (METROS): <span id="radius-value">10000</span></label>
+        <input style="border:0;" type="range" id="radius-control" class="custom-range" min="10000" max="50000" step="1000" value="10000" onchange="atualizarRaios()">
+      </div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+
+  <!-- Adicione um campo oculto para armazenar os pontos -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAURQyFMld9XXPP5UQXymx5VZ7ZsdVydUo&callback=initMap" async defer></script>
